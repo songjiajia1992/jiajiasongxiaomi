@@ -279,57 +279,7 @@ window.onload=function(){
         animate(nextBtn,{opacity:0},500);
         animate(prevBtn,{opacity:0},500);
     };
-//function changeTip() {
-//    for (var i = 0; i < tipList.length; i++) {
-//        var stepTip = step === tipList.length ? 0 : step;
-//        tipList[i].className = i === stepTip ? "select" : null;
-//    }
-//}
-//for (var i = 0; i < tipList.length; i++) {
-//    tipList[i].index = i;
-//    tipList[i].onclick = function () {
-//        animate(inner, {left: -this.index * 1226}, 500);
-//        step = this.index;
-//        changeTip();
-//    }
-//}
-//function bigAutoMove() {
-//    if (typeof arguments[0] === "undefined" || arguments[0] === "right") {
-//        stepOther++;
-//        if (stepOther > 4) {
-//            xmCarouselList.style.left = 0 + "px";
-//            stepOther = 1;
-//        }
-//        animate(xmCarouselList, {left: -stepOther * 296}, 500);
-//    }
-//    if (arguments[0] === "left") {
-//        stepOther--;
-//        if (stepOther < 0) {
-//            xmCarouselList.style.left = -888+ "px";
-//            stepOther = 3;
-//        }
-//        animate(xmCarouselList, {left: -stepOther * 296}, 500);
-//    }
-//}
-//autoTimer = window.setInterval(bigAutoMove, 5000);
-//var stepIndex=0;
-//$("#content .control-next").click(function(){
-//    stepIndex++;
-//    var $index = $(this).index();
-//    if(stepIndex>=4){
-//        return;
-//    }
-//    $(this).parent().prev().prev().children().animate({left:stepIndex*-296+"px"}, "normal");
-//});
-//$("#content .control-prev").click(function(){
-//    stepIndex--;
-//    if(stepIndex<=0){
-//        return;
-//    }
-//    $(this).parent().prev().prev().children().animate({left:stepIndex*-296+"px"}, "normal");
-//
-//});
-//回到顶部；
+
     var gotopArrow = document.getElementsByClassName("gotop-arrow")[0];
     gotopArrow.onclick = function () {
         var duration = 1000;
