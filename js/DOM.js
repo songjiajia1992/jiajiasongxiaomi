@@ -6,13 +6,14 @@ utils.win = function (attr, value) {
     document.documentElement[attr] = value;
     document.body[attr] = value;
 };
-utils.getElementsByClass = function (str) {
-    if (document.getElementsByClassName) {
-        return document.getElementsByClassName(str);
+utils.getElementsByClass = function (str,context) {
+    context=context||document;
+    if (context.getElementsByClassName) {
+        return context.getElementsByClassName(str);
     }
     str = str.replace(/^ +| +$/g, "");
     var aClass = str.split(/ +/);
-    var eles = document.body.getElementsByTagName("*");
+    var eles = context.getElementsByTagName("*");
     for (var i = 0; i < aClass.length; i++) {
         var reg = RegExp("(^| )" + aClass[i] + "( |$)");
         var ary = [];

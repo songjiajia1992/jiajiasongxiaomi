@@ -46,7 +46,7 @@ var animate = (function () {
         }
     };
     //t->times 已经运动的时间, b->begin 开始的位置, c->change 总运动距离(结尾的位置-开始的位置), d->duration 总运动时间
-    var zhufengEffect = {
+    var jiajiaEffect = {
         //匀速
         Linear: function (t, b, c, d) {
             return c * t / d + b;
@@ -227,7 +227,7 @@ var animate = (function () {
     //实现我们的animate动画库
     return function (curEle, options, duration, effect, callback) {
         //init effect
-        var fnEffect = zhufengEffect.Linear;//->默认是匀速的运动
+        var fnEffect = jiajiaEffect.Linear;//->默认是匀速的运动
         if (typeof effect === "number") {
             //1->Linear 2->Elastic-easeOut 3->Back-easeOut 4->Bounce-easeOut 5->Expo-easeIn
             var ary = ["Linear", "Elastic-easeOut", "Back-easeOut", "Bounce-easeOut", "Expo-easeIn"];
@@ -236,14 +236,14 @@ var animate = (function () {
                     var curItem = ary[i].split("-");
                     var curItemFir = curItem[0];
                     var curItemTwo = curItem[1];
-                    fnEffect = curItem.length === 1 ? zhufengEffect[curItemFir] : zhufengEffect[curItemFir][curItemTwo];
+                    fnEffect = curItem.length === 1 ? jiajiaEffect[curItemFir] : jiajiaEffect[curItemFir][curItemTwo];
                     break;
                 }
             }
         } else if (effect instanceof Array) {
             var effectFir = effect[0];
             var effectTwo = effect[1];
-            fnEffect = effect.length === 1 ? zhufengEffect[effectFir] : zhufengEffect[effectFir][effectTwo];
+            fnEffect = effect.length === 1 ? jiajiaEffect[effectFir] : jiajiaEffect[effectFir][effectTwo];
         } else if (typeof effect === "function") {
             //我们的第四项的运动方式没有传递,第四个参数的值应该是我们第五个形参callback的值
             callback = effect;
@@ -262,11 +262,6 @@ var animate = (function () {
             }
         }
 
-
-
-
-
-
         //init
         var move = function () {
             window.clearTimeout(curEle.timer);
@@ -281,7 +276,6 @@ var animate = (function () {
                 typeof callback === "function" ? callback.call(curEle) : null;
                 return;
             }
-
 
             for (var attr in oChange) {
                 if (oChange.hasOwnProperty(attr)) {

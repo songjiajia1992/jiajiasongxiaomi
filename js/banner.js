@@ -48,8 +48,8 @@ window.onload=function(){
     var outer = document.getElementById("outer");
     var inner = document.getElementById("inner");
     var tip = document.getElementById("tip");
-    var onLeft = outer.getElementsByClassName("onLeft")[0];
-    var onRight = outer.getElementsByClassName("onRight")[0];
+    var onLeft = utils.getElementsByClass("onLeft",outer)[0];
+    var onRight = utils.getElementsByClass("onRight",outer)[0];
     var tipList = tip.getElementsByTagName("li");
     var imgList = inner.getElementsByTagName("div");
     var step = 0;
@@ -226,11 +226,11 @@ window.onload=function(){
 //底部四个小轮播图
     var stepIndex=0;
     var contents=document.getElementById("content");
-    var contentItemBook=contents.getElementsByClassName("content-item-book")[0];
-    var itemLists=contents.getElementsByClassName("item-list")[0];
-    var prevBtn=contents.getElementsByClassName("control-prev")[0];
-    var nextBtn=contents.getElementsByClassName("control-next")[0];
-    var xmPagers=contents.getElementsByClassName("xm-pagers")[0];
+    var contentItemBook=utils.getElementsByClass("content-item-book",contents)[0];
+    var itemLists=utils.getElementsByClass("item-list",contents)[0];
+    var prevBtn=utils.getElementsByClass("control-prev",contents)[0];
+    var nextBtn=utils.getElementsByClass("control-next",contents)[0];
+    var xmPagers=utils.getElementsByClass("xm-pagers",contents)[0];
     var pageList=xmPagers.getElementsByTagName("li");
     function bigAutoMove(){
         if(arguments[0]==="right"){
